@@ -22,6 +22,12 @@ public abstract class AbstractEntity {
 	@Getter
 	String version = "1.0.0";
 
+	public void setUuid () {
+		this.uuid = UUID.randomUUID();
+	}
+	public  void setCreatedDate(){
+		this.createdDate = LocalDateTime.now();
+	}
 	public AbstractEntity() {
 		uuid = UUID.randomUUID();
 		createdDate = LocalDateTime.now();

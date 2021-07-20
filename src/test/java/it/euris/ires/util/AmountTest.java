@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.javamoney.moneta.Money;
+import org.javamoney.moneta.internal.MoneyAmountBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,5 +36,19 @@ class AmountTest {
     // assert
     assertEquals("404.00", totalAmount);
   }
+
+  @Test
+  void givenCurrencyWhenInitAmountThenAttributeAmountIsZeroAndFinalAmountIsZero(){
+    // arrange
+    Amount amount = new Amount();
+    amount.initAmount("USD");
+    List<String> priceList = new ArrayList<>();
+
+    // act
+    String totalAmount = amount.sum(priceList);
+    //
+    assertEquals("0", totalAmount);
+  }
+
 
 }
